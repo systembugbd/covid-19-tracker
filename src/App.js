@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import {FormControl, Select, MenuItem} from '@material-ui/core'
 
 function App() {
+  const [countries, setCountry] = useState(['USA', "BD", "IN"])
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <h2>Covid 19 Traker</h2>
+      <FormControl className="app__dropdown">
+        <Select variant="outlined" value="Worldwide" >
+        
+        {countries.map(country => (
+          <MenuItem value={country}>{country}</MenuItem>
+        ))
+      }
+  {
+    /*
+     <MenuItem value="worldwide">worldwide</MenuItem>
+          <MenuItem value="worldwide">worldwide 2</MenuItem>
+          <MenuItem value="worldwide">worldwide 3</MenuItem>
+          <MenuItem value="worldwide">worldwide 4</MenuItem>
+    
+    */
+  }
+       
+        
+          </Select>       
+      </FormControl>
     </div>
   );
 }
